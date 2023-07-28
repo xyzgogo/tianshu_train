@@ -69,6 +69,15 @@ def create_symlink(source, target):
         print(f"Failed to create symlink: {target} -> {source}")
         print(f"Error: {e}")
 
+
+def copy_directory(source, destination):
+    try:
+        shutil.copytree(source, destination)
+        print("Directory copied successfully.")
+    except FileExistsError:
+        print(f"Destination directory '{destination}' already exists.")
+    except Exception as e:
+        print(f"An error occurred while copying: {e}")
 # split_dataset('./yolo/obj_train_data','./yolo')
 
 # # Example usage
